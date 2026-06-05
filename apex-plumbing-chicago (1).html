@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KS Plumbing — Chicago's Premier Plumbing Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0B1D2E;
+    --navy-mid: #132840;
+    --navy-light: #1E3E5A;
+    --gold: #C9A84C;
+    --gold-light: #E5C97A;
+    --gold-pale: #F5EDD4;
+    --cream: #FAF8F3;
+    --white: #FFFFFF;
+    --gray-text: #6B7280;
+    --gray-light: #F0EDE8;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 5%;
+    background: rgba(11, 29, 46, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-logo .pipe-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo-text .brand {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo-text .tagline {
+    font-size: 0.6rem;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 3px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 60px, rgba(201,168,76,1) 60px, rgba(201,168,76,1) 61px
+    ), repeating-linear-gradient(
+      90deg, transparent, transparent 60px, rgba(201,168,76,1) 60px, rgba(201,168,76,1) 61px
+    );
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 5% 6rem 8%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow span {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.9rem 2rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-trust {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .trust-item {
+    text-align: center;
+  }
+
+  .trust-item .num {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .trust-item .label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* Hero right panel */
+  .hero-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .hero-image-panel {
+    flex: 1;
+    background: linear-gradient(135deg, var(--navy-light) 0%, #0d2438 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Large decorative pipe SVG */
+  .hero-pipe-art {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.08;
+    width: 520px;
+    height: 520px;
+  }
+
+  .hero-card-overlay {
+    position: relative;
+    z-index: 3;
+    margin: 3rem;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    border-radius: 6px;
+    padding: 1.75rem;
+    backdrop-filter: blur(6px);
+  }
+
+  .hero-card-overlay h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-card-overlay p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .emergency-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  /* ─── TICKER BAND ─── */
+  .ticker-band {
+    background: var(--gold);
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    gap: 0;
+    animation: ticker 28s linear infinite;
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    padding: 0 2.5rem;
+  }
+
+  .ticker-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--navy);
+    border-radius: 50%;
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ─── SERVICES ─── */
+  .services {
+    padding: 7rem 8%;
+    background: var(--cream);
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .section-label span {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(11,29,46,0.08);
+    border: 1.5px solid rgba(11,29,46,0.08);
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.25s;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover { background: var(--navy); }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-card:hover .svc-icon-wrap { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); }
+  .service-card:hover .svc-icon-wrap svg { stroke: var(--gold); }
+  .service-card:hover .svc-name { color: var(--white); }
+  .service-card:hover .svc-desc { color: rgba(255,255,255,0.55); }
+  .service-card:hover .svc-link { color: var(--gold); }
+
+  .svc-icon-wrap {
+    width: 54px;
+    height: 54px;
+    border: 1px solid rgba(11,29,46,0.15);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: background 0.25s, border-color 0.25s;
+  }
+
+  .svc-icon-wrap svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--navy);
+    stroke-width: 1.5;
+    fill: none;
+    transition: stroke 0.25s;
+  }
+
+  .svc-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.65rem;
+    transition: color 0.25s;
+  }
+
+  .svc-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--gray-text);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    transition: color 0.25s;
+  }
+
+  .svc-link {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.25s;
+  }
+
+  .svc-link svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2;
+    stroke: currentColor;
+    fill: none;
+    transition: transform 0.2s;
+  }
+
+  .svc-link:hover svg { transform: translateX(3px); }
+
+  /* ─── WHY US SPLIT ─── */
+  .why-us {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+
+  .why-image {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .why-image-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .big-number {
+    font-family: var(--serif);
+    font-size: 8rem;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    opacity: 0.08;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+
+  .why-badge-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+    padding: 4rem;
+  }
+
+  .why-badge {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+
+  .why-badge:hover { background: rgba(201,168,76,0.08); }
+
+  .why-badge-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(201,168,76,0.15);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .why-badge-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--gold);
+    stroke-width: 1.75;
+    fill: none;
+  }
+
+  .why-badge-text .title {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  .why-badge-text .desc {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.55;
+  }
+
+  .why-content {
+    background: var(--gray-light);
+    padding: 5rem 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .why-feature-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .why-feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .why-feature-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    opacity: 0.4;
+    flex-shrink: 0;
+    width: 32px;
+  }
+
+  .why-feature-body h4 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .why-feature-body p {
+    font-size: 0.83rem;
+    font-weight: 300;
+    color: var(--gray-text);
+    line-height: 1.65;
+  }
+
+  /* ─── REVIEWS ─── */
+  .reviews {
+    background: var(--navy);
+    padding: 7rem 8%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+
+  .reviews-header .section-title { color: var(--white); margin-bottom: 0; }
+  .reviews-header .section-label::before { background: var(--gold); }
+
+  .google-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    text-align: right;
+  }
+
+  .google-badge .rating {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .google-badge .stars {
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin: 2px 0;
+  }
+
+  .google-badge .count {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.08em;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 6px;
+    padding: 2rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .review-card:hover { background: rgba(201,168,76,0.05); border-color: rgba(201,168,76,0.2); }
+
+  .review-stars {
+    color: var(--gold);
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .review-text {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .review-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .review-info .name {
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .review-info .location {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 1px;
+  }
+
+  /* ─── PROCESS ─── */
+  .process {
+    padding: 7rem 8%;
+    background: var(--white);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 3.5rem;
+    background: rgba(11,29,46,0.07);
+  }
+
+  .process-step {
+    background: var(--white);
+    padding: 2.5rem 1.75rem;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--navy);
+    opacity: 0.07;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .step-icon {
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid var(--gold);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .step-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--gold);
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  .step-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .step-desc {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--gray-text);
+    line-height: 1.65;
+  }
+
+  /* ─── SERVICE AREAS ─── */
+  .areas {
+    background: var(--cream);
+    padding: 5rem 8%;
+    border-top: 1px solid rgba(11,29,46,0.08);
+  }
+
+  .areas-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .areas-left .section-title { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .areas-left p { font-size: 0.85rem; color: var(--gray-text); font-weight: 300; }
+
+  .areas-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    max-width: 600px;
+  }
+
+  .area-tag {
+    background: var(--white);
+    border: 1px solid rgba(11,29,46,0.12);
+    border-radius: 2px;
+    padding: 0.45rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--navy);
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+
+  .area-tag:hover { border-color: var(--gold); background: var(--gold-pale); }
+
+  /* ─── CTA BAND ─── */
+  .cta-band {
+    background: var(--navy);
+    padding: 5rem 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-band::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 50%;
+  }
+
+  .cta-band::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 50%;
+  }
+
+  .cta-text h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-text p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+
+  .phone-cta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 0.9rem 1.5rem;
+    text-decoration: none;
+  }
+
+  .phone-cta svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--gold);
+    stroke-width: 1.75;
+    fill: none;
+    flex-shrink: 0;
+  }
+
+  .phone-cta .num {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .phone-cta .sub {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #07121D;
+    padding: 4rem 8% 2.5rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .footer-brand p {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+    margin-top: 1rem;
+    max-width: 260px;
+  }
+
+  .footer-col h5 {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .footer-col ul a {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--gold); }
+
+  .footer-license {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .license-badge {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.08em;
+  }
+
+  .license-badge strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .hero-content { padding: 7rem 6% 5rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .why-us { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .cta-band { flex-direction: column; align-items: flex-start; }
+    .nav-links { display: none; }
+    .areas-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid, .process-steps { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .hero-trust { flex-wrap: wrap; gap: 1.5rem; }
+    .trust-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg class="pipe-icon" viewBox="0 0 38 38" fill="none">
+      <rect x="4" y="14" width="30" height="10" rx="3" stroke="#C9A84C" stroke-width="1.5"/>
+      <rect x="12" y="4" width="6" height="12" rx="2" stroke="#C9A84C" stroke-width="1.5"/>
+      <rect x="20" y="22" width="6" height="12" rx="2" stroke="#C9A84C" stroke-width="1.5"/>
+      <circle cx="15" cy="19" r="2" fill="#C9A84C"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="brand">KS Plumbing</span>
+      <span class="tagline">Chicago's Premium Service</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#areas">Service Areas</a></li>
+    <li><a href="tel:7735550100" class="nav-cta">Call Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span>Licensed & Insured · Serving Chicagoland Since 1997</span>
+    </div>
+
+    <h1>
+      Premium Plumbing<br>
+      for <em>Chicago's</em><br>
+      Finest Homes
+    </h1>
+
+    <p class="hero-sub">
+      When you need expert plumbing done right the first time, KS delivers five-star craftsmanship with same-day availability across the Chicagoland area.
+    </p>
+
+    <div class="hero-actions">
+      <a href="tel:7735550100" class="btn-primary">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" style="width:16px;height:16px">
+          <path d="M3 4a1 1 0 0 1 1-1h3l1.5 4-2 1.5c.9 1.9 2.1 3.1 4 4L12 10.5l4 1.5v3a1 1 0 0 1-1 1C7 16 4 9 3 4z"/>
+        </svg>
+        (773) 555-0100
+      </a>
+      <a href="#services" class="btn-outline">
+        View Services
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" style="width:14px;height:14px">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="num">27+</div>
+        <div class="label">Years Experience</div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="num">4.9★</div>
+        <div class="label">Google Rating</div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="num">8,400+</div>
+        <div class="label">Jobs Completed</div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="num">24/7</div>
+        <div class="label">Emergency Service</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-image-panel">
+      <!-- Decorative pipe art -->
+      <svg class="hero-pipe-art" viewBox="0 0 520 520" fill="none" stroke="rgba(201,168,76,1)" stroke-width="4">
+        <rect x="60" y="200" width="400" height="120" rx="12"/>
+        <rect x="160" y="60" width="80" height="145" rx="10"/>
+        <rect x="280" y="315" width="80" height="145" rx="10"/>
+        <circle cx="200" cy="258" r="28" stroke-width="5"/>
+        <circle cx="320" cy="258" r="28" stroke-width="5"/>
+        <line x1="200" y1="230" x2="200" y2="286"/>
+        <line x1="172" y1="258" x2="228" y2="258"/>
+        <line x1="320" y1="230" x2="320" y2="286"/>
+        <line x1="292" y1="258" x2="348" y2="258"/>
+      </svg>
+
+      <div class="hero-card-overlay">
+        <h3>Emergency Plumbing</h3>
+        <p>Burst pipes, gas leaks, severe clogs — our crew is on call around the clock. Most Chicago neighborhoods reached in under 60 minutes.</p>
+        <a href="tel:7735550100" class="emergency-badge">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px">
+            <circle cx="8" cy="8" r="6"/>
+            <path d="M8 5v3l2 1.5"/>
+          </svg>
+          24/7 Emergency Line
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-band" aria-hidden="true">
+  <div class="ticker-inner">
+    <!-- double for seamless loop -->
+    <span class="ticker-item"><span class="ticker-dot"></span>Licensed Master Plumbers</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Same-Day Service Available</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Flat-Rate Pricing — No Surprises</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>All Work Guaranteed 2 Years</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Serving 60+ Chicagoland Communities</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>City of Chicago Licensed & Bonded</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Licensed Master Plumbers</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Same-Day Service Available</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Flat-Rate Pricing — No Surprises</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>All Work Guaranteed 2 Years</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Serving 60+ Chicagoland Communities</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>City of Chicago Licensed & Bonded</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label"><span>What We Do</span></div>
+  <h2 class="section-title">Full-Spectrum<br>Plumbing Services</h2>
+  <p class="section-sub">From a dripping faucet to a complete whole-home repipe, KS has the expertise and equipment for every job.</p>
+
+  <div class="services-grid">
+    <!-- 1 -->
+    <div class="service-card">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 26 26"><path d="M13 3v10M8 8l5 5 5-5"/><rect x="4" y="16" width="18" height="7" rx="2"/><line x1="9" y1="20" x2="17" y2="20"/></svg>
+      </div>
+      <div class="svc-name">Drain Cleaning</div>
+      <p class="svc-desc">Camera inspection, hydro-jetting, and full drain clearing for sinks, tubs, floor drains, and main sewer lines.</p>
+      <a href="#" class="svc-link">Learn more <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <!-- 2 -->
+    <div class="service-card">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 26 26"><path d="M7 20h12M13 20V9M6 9h14"/><path d="M9 9V6a4 4 0 0 1 8 0v3"/></svg>
+      </div>
+      <div class="svc-name">Water Heater Service</div>
+      <p class="svc-desc">Installation, repair, and replacement of tank and tankless water heaters. All major brands serviced.</p>
+      <a href="#" class="svc-link">Learn more <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <!-- 3 -->
+    <div class="service-card">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 26 26"><rect x="5" y="5" width="16" height="16" rx="3"/><path d="M9 12h8M9 16h5M13 5v3M13 18v3"/></svg>
+      </div>
+      <div class="svc-name">Pipe Repair & Repiping</div>
+      <p class="svc-desc">Burst pipe repair, trenchless pipe lining, and whole-home copper or PEX repiping with minimal wall disruption.</p>
+      <a href="#" class="svc-link">Learn more <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <!-- 4 -->
+    <div class="service-card">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 26 26"><path d="M8 20h10M13 20V14M6 14h14a7 7 0 0 0-14 0z"/></svg>
+      </div>
+      <div class="svc-name">Fixture Installation</div>
+      <p class="svc-desc">Faucets, toilets, sinks, garbage disposals, shower systems, and more — supply your own or we'll source premium brands.</p>
+      <a href="#" class="svc-link">Learn more <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <!-- 5 -->
+    <div class="service-card">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 26 26"><path d="M5 18c0-5 4-9 8-9"/><path d="M13 9c4 0 8 4 8 9H5"/><circle cx="13" cy="6" r="2.5"/></svg>
+      </div>
+      <div class="svc-name">Sewer & Septic</div>
+      <p class="svc-desc">Full sewer line replacement, root removal, smoke testing, and Chicago city sewer compliance for residential and commercial.</p>
+      <a href="#" class="svc-link">Learn more <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <!-- 6 -->
+    <div class="service-card">
+      <div class="svc-icon-wrap">
+        <svg viewBox="0 0 26 26"><path d="M13 4v6l4 2M5 14a8 8 0 1 0 16 0 8 8 0 0 0-16 0z"/></svg>
+      </div>
+      <div class="svc-name">24/7 Emergency</div>
+      <p class="svc-desc">Burst pipes, gas leaks, sewage backups, and flooding — we respond fast with a fully stocked truck, any time of day or night.</p>
+      <a href="tel:7735550100" class="svc-link">Call now <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us">
+  <div class="why-image">
+    <div class="big-number">27</div>
+    <div class="why-badge-stack">
+      <div class="why-badge">
+        <div class="why-badge-icon">
+          <svg viewBox="0 0 20 20"><path d="M10 2l2.1 6.4H18l-5 3.8 1.9 6.4L10 14.5l-4.9 4.1L7 12.2 2 8.4h5.9L10 2z" stroke-width="1.5"/></svg>
+        </div>
+        <div class="why-badge-text">
+          <div class="title">4.9 / 5 Stars on Google</div>
+          <div class="desc">Based on 1,200+ verified reviews across Chicagoland</div>
+        </div>
+      </div>
+      <div class="why-badge">
+        <div class="why-badge-icon">
+          <svg viewBox="0 0 20 20"><path d="M9 12l2 2 4-4M5 8h10M5 12h4M5 16h3M3 4h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" stroke-width="1.5" fill="none"/></svg>
+        </div>
+        <div class="why-badge-text">
+          <div class="title">City of Chicago Licensed</div>
+          <div class="desc">License #P-19047 · Fully bonded & insured to $2M</div>
+        </div>
+      </div>
+      <div class="why-badge">
+        <div class="why-badge-icon">
+          <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" stroke-width="1.5" fill="none"/><path d="M10 6v4l3 2" stroke-width="1.5"/></svg>
+        </div>
+        <div class="why-badge-text">
+          <div class="title">60-Minute Response Guarantee</div>
+          <div class="desc">Emergency calls prioritized — or your service call is free</div>
+        </div>
+      </div>
+      <div class="why-badge">
+        <div class="why-badge-icon">
+          <svg viewBox="0 0 20 20"><path d="M4 10h12M4 6h12M4 14h8" stroke-width="1.5"/></svg>
+        </div>
+        <div class="why-badge-text">
+          <div class="title">Upfront Flat-Rate Pricing</div>
+          <div class="desc">You approve the price before we turn a single wrench</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="why-content">
+    <div class="section-label"><span>Why KS</span></div>
+    <h2 class="section-title">The KS<br>Standard</h2>
+    <p class="section-sub" style="margin-bottom:0">What separates premium plumbing from a rushed patch job.</p>
+
+    <div class="why-feature-list">
+      <div class="why-feature">
+        <div class="why-feature-num">01</div>
+        <div class="why-feature-body">
+          <h4>Master-Level Technicians Only</h4>
+          <p>Every KS plumber holds a City of Chicago master plumber's license — not apprentice, not journeyman. No trainees on your job.</p>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-num">02</div>
+        <div class="why-feature-body">
+          <h4>Clean, Respectful Service</h4>
+          <p>Drop cloths, shoe covers, and thorough cleanup every visit. We treat your home as if it were our own.</p>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-num">03</div>
+        <div class="why-feature-body">
+          <h4>2-Year Workmanship Warranty</h4>
+          <p>Every repair and installation is backed by our industry-leading two-year guarantee. No fine print, no excuses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-header">
+    <div>
+      <div class="section-label"><span>Customer Reviews</span></div>
+      <h2 class="section-title">What Chicago<br>Homeowners Say</h2>
+    </div>
+    <div class="google-badge">
+      <div>
+        <div class="rating">4.9</div>
+        <div class="stars">★★★★★</div>
+        <div class="count">1,247 Google Reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Called at 2am after a pipe burst in our basement. The tech arrived in 45 minutes, found the issue immediately, and had it fixed before sunrise. Immaculate work, zero mess. Worth every penny."</p>
+      <div class="review-author">
+        <div class="review-avatar">MR</div>
+        <div class="review-info">
+          <div class="name">Michael R.</div>
+          <div class="location">Lincoln Park · Emergency Service</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"We had three other plumbers look at our sewer situation and all three quoted wildly different prices. KS came out, ran a camera, showed us exactly what was happening, and gave us a flat number. Done in a day."</p>
+      <div class="review-author">
+        <div class="review-avatar">ST</div>
+        <div class="review-info">
+          <div class="name">Sarah T.</div>
+          <div class="location">Naperville · Sewer Line Repair</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"These guys installed a whole-home tankless water heater and replaced all the galvanized pipes in our 1920s greystone. The craftsmanship is genuinely impressive. You can tell they take pride in their work."</p>
+      <div class="review-author">
+        <div class="review-avatar">DK</div>
+        <div class="review-info">
+          <div class="name">David K.</div>
+          <div class="location">Wicker Park · Full Repipe</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-label"><span>How It Works</span></div>
+  <h2 class="section-title">From Call to<br>Completed Job</h2>
+  <p class="section-sub">A transparent, stress-free process built around your schedule and budget.</p>
+
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 20 20"><path d="M3 4a1 1 0 0 1 1-1h3l1.5 4-2 1.5c.9 1.9 2.1 3.1 4 4L12 10.5l4 1.5v3a1 1 0 0 1-1 1C7 16 4 9 3 4z" stroke-width="1.5" fill="none"/></svg>
+      </div>
+      <div class="step-name">Call or Book Online</div>
+      <p class="step-desc">Reach us 24/7 by phone or use our online booking form. Typical response time: under 5 minutes.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" stroke-width="1.5" fill="none"/><path d="M10 7v3l2.5 1.5" stroke-width="1.5"/></svg>
+      </div>
+      <div class="step-name">Same-Day Dispatch</div>
+      <p class="step-desc">A licensed master plumber arrives in your chosen window with a fully stocked truck ready for most repairs.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 20 20"><path d="M3 10h14M3 6h14M3 14h10" stroke-width="1.5"/></svg>
+      </div>
+      <div class="step-name">Upfront Flat Quote</div>
+      <p class="step-desc">We diagnose the issue, explain it in plain language, and give you a single flat price before any work begins. No surprises.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 20 20"><path d="M5 10l4 4 6-7" stroke-width="2" fill="none"/></svg>
+      </div>
+      <div class="step-name">Expert Execution & Cleanup</div>
+      <p class="step-desc">Your plumber completes the job to code, cleans up thoroughly, and walks you through the 2-year warranty documentation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="areas" id="areas">
+  <div class="areas-inner">
+    <div class="areas-left">
+      <div class="section-label"><span>Where We Serve</span></div>
+      <h2 class="section-title">Serving 60+<br>Chicagoland Communities</h2>
+      <p>City of Chicago neighborhoods and surrounding suburbs — all within our coverage zone.</p>
+    </div>
+    <div class="areas-list">
+      <span class="area-tag">Chicago (All Neighborhoods)</span>
+      <span class="area-tag">Evanston</span>
+      <span class="area-tag">Oak Park</span>
+      <span class="area-tag">Skokie</span>
+      <span class="area-tag">Naperville</span>
+      <span class="area-tag">Schaumburg</span>
+      <span class="area-tag">Aurora</span>
+      <span class="area-tag">Joliet</span>
+      <span class="area-tag">Waukegan</span>
+      <span class="area-tag">Elgin</span>
+      <span class="area-tag">Arlington Heights</span>
+      <span class="area-tag">Palatine</span>
+      <span class="area-tag">Bolingbrook</span>
+      <span class="area-tag">Des Plaines</span>
+      <span class="area-tag">Orland Park</span>
+      <span class="area-tag">Tinley Park</span>
+      <span class="area-tag">Cicero</span>
+      <span class="area-tag">Berwyn</span>
+      <span class="area-tag">Park Ridge</span>
+      <span class="area-tag">Wilmette</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-text">
+    <h2>Ready to Get Started?</h2>
+    <p>Same-day appointments available. No overtime charges, ever.</p>
+  </div>
+  <div class="cta-actions">
+    <a href="tel:7735550100" class="phone-cta">
+      <svg viewBox="0 0 20 20"><path d="M3 4a1 1 0 0 1 1-1h3l1.5 4-2 1.5c.9 1.9 2.1 3.1 4 4L12 10.5l4 1.5v3a1 1 0 0 1-1 1C7 16 4 9 3 4z" fill="none" stroke-width="1.75"/></svg>
+      <div>
+        <div class="num">(773) 555-0100</div>
+        <div class="sub">Available 24/7</div>
+      </div>
+    </a>
+    <a href="#" class="btn-primary" style="padding: 1rem 2rem;">
+      Book Online
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px">
+        <path d="M3 8h10M9 4l4 4-4 4"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <svg class="pipe-icon" viewBox="0 0 38 38" fill="none">
+          <rect x="4" y="14" width="30" height="10" rx="3" stroke="#C9A84C" stroke-width="1.5"/>
+          <rect x="12" y="4" width="6" height="12" rx="2" stroke="#C9A84C" stroke-width="1.5"/>
+          <rect x="20" y="22" width="6" height="12" rx="2" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="15" cy="19" r="2" fill="#C9A84C"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span class="brand">KS Plumbing</span>
+          <span class="tagline">Chicago's Premium Service</span>
+        </div>
+      </div>
+      <p>Family-owned and operated in Chicago since 1997. Master-licensed plumbers serving the entire Chicagoland metro with integrity and craftsmanship.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">Drain Cleaning</a></li>
+        <li><a href="#">Water Heaters</a></li>
+        <li><a href="#">Pipe Repair</a></li>
+        <li><a href="#">Fixture Install</a></li>
+        <li><a href="#">Sewer & Septic</a></li>
+        <li><a href="#">Emergency Plumbing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About KS</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:7735550100">(773) 555-0100</a></li>
+        <li><a href="mailto:info@apexplumbingchicago.com">info@apexplumbing.com</a></li>
+        <li><a href="#">Book Online</a></li>
+        <li><a href="#">Service Areas</a></li>
+        <li><a href="#">Financing</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 KS Plumbing All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></p>
+    <div class="footer-license">
+      <span class="license-badge">City of Chicago License <strong>#P-19047</strong></span>
+      <span class="license-badge">Illinois License <strong>#055-026710</strong></span>
+      <span class="license-badge">Insured to <strong>$2,000,000</strong></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
